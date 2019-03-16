@@ -136,7 +136,7 @@ class EconomyPShop extends PluginBase implements Listener{
 							$sender->sendMessage($this->getMessage("no-shop-tax"));
 							return true;
 						}
-						\onebone\economyapi\EconomyAPI::getInstance()->reduceMoney($sender->getName(), $this->getConfig()->get("shop-tax"), "EconomyPShop");
+						//\onebone\economyapi\EconomyAPI::getInstance()->reduceMoney($sender->getName(), $this->getConfig()->get("shop-tax"), "EconomyPShop");
 
 						$itemstring = array_shift($params);
 						$amount = array_shift($params);
@@ -203,6 +203,7 @@ class EconomyPShop extends PluginBase implements Listener{
 						$this->queue[strtolower($sender->getName())] = [
 							$itemstring, (int) $amount, $cost, (int) $side
 						];
+						\onebone\economyapi\EconomyAPI::getInstance()->reduceMoney($sender->getName(), $this->getConfig()->get("shop-tax"), "EconomyPShop");
 						$sender->sendMessage($this->getMessage("added-queue"));
 						return true;
 				}
