@@ -96,7 +96,7 @@ class EconomySell extends PluginBase implements Listener{
 
     public function onCommand(CommandSender $sender, Command $command, string $label, array $params) : bool{
         switch($command->getName()){
-            case "sell":
+            case "ecosell":
                 switch(strtolower(array_shift($params))){
                     case "create":
                     case "cr":
